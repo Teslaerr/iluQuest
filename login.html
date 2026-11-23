@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход — ILU QUEST</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="heading-mascot">🔥</div>
+      <h1>С возвращением!</h1>
+      <p>Войди, чтобы сохранять места и коллекции.</p>
+      
+      <form id="login-form">
+        <label class="field-label">Email
+          <input class="text-input" type="email" name="email" required placeholder="you@example.com">
+        </label>
+        <label class="field-label">Пароль
+          <input class="text-input" type="password" name="password" required placeholder="••••••••">
+        </label>
+        <button type="submit" class="button-dark">Войти</button>
+        <p class="form-note">
+          Нет аккаунта? <a href="register.html">Зарегистрироваться</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = e.target.elements.email.value;
+      const pass = e.target.elements.password.value;
+      const users = JSON.parse(localStorage.getItem('ilu_users') || '[]');
+      const user = users.find(u => u.email === email && u.password === pass);
+      if (user) {
+        localStorage.setItem('ilu_currentUser', JSON.stringify(user));
+        window.location.href = 'index.html#/account';
+      } else {
+        alert('Неверный email или пароль');
+      }
+    });
+  </script>
+</body>
+</html>

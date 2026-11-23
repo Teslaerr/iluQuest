@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a9e7f8">
+  <meta name="description" content="ILU QUEST — находи интересные места Элисты по настроению, тегам и маленьким приключениям.">
+  <title>ILU QUEST — выбирай приключение</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-stripe bg-stripe-light"></div>
+    <div class="bg-stripe bg-stripe-lighter"></div>
+  </div>
+
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="ILU QUEST — на главную"><img src="assets/ilu-quest-logo.png" alt="ILU QUEST"></a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="index.html#/places" data-nav="places">Каталог</a>
+        <a href="index.html#/places?view=map" data-nav="map">Карта</a>
+        <a href="about.html">О нас</a>
+        <a href="index.html#/reviews" data-nav="reviews">Отзывы</a>
+        <a href="index.html#/account?tab=collections" data-nav="collections">Коллекции</a>
+      </nav>
+      <div class="header-actions">
+        <span class="city-pill"><span class="pin-mini"> </span> Элиста</span>
+        <a class="avatar-link" href="login.html" aria-label="Войти"><span class="avatar-mini">👤</span></a>
+        <button class="mobile-menu" type="button" aria-label="Открыть меню" data-action="mobile-menu">☰</button>
+      </div>
+    </header>
+    <main id="app" tabindex="-1">
+      <div class="loading-state"><span class="loading-flame">🔥</span><p>Огонёк ищет приключения…</p></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bg-stripe" aria-hidden="true"></div>
+      <div class="footer-content">
+        <div class="footer-col footer-brand-col">
+          <a class="footer-brand" href="index.html" aria-label="ILU QUEST — на главную">
+            <img src="assets/ilu-quest-logo.png" alt="ILU QUEST">
+          </a>
+          <p>Больше, чем просто места.<br><span>Находи свои маленькие приключения в Элисте.</span></p>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <div class="footer-links">
+            <a href="index.html#/places">Исследовать</a>
+            <a href="index.html#/account">Мой профиль</a>
+            <a href="about.html">О нас</a>
+            <a href="index.html#/reviews">Отзывы</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <div class="footer-contacts">
+            <p>+7 (999) 123-45-67</p>
+            <p>hello@iluquest.ru</p>
+            <p>г. Элиста, Калмыкия</p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Мы в соцсетях</h4>
+          <div class="footer-socials">
+            <a href="#/" class="social-link" aria-label="Telegram"><img src="assets/icon-tg.png" alt="Telegram"></a>
+            <a href="#/" class="social-link" aria-label="VK"><img src="assets/icon-vk.png" alt="VK"></a>
+            <a href="#/" class="social-link" aria-label="Instagram"><img src="assets/icon-ig.png" alt="Instagram"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 ILU QUEST. Все права защищены.</p>
+        <img src="assets/mascot-footer.png" alt="Огонёк" class="footer-mascot">
+      </div>
+    </footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html> 

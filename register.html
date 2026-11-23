@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация — ILU QUEST</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="heading-mascot">🔥</div>
+      <h1>Присоединяйся!</h1>
+      <p>Создай аккаунт, чтобы не потерять свои приключения.</p>
+      
+      <form id="reg-form">
+        <label class="field-label">Имя
+          <input class="text-input" type="text" name="name" required placeholder="Твоё имя" maxlength="32">
+        </label>
+        <label class="field-label">Email
+          <input class="text-input" type="email" name="email" required placeholder="you@example.com">
+        </label>
+        <label class="field-label">Пароль
+          <input class="text-input" type="password" name="password" required placeholder="••••••••">
+        </label>
+        <button type="submit" class="button-dark">Создать аккаунт</button>
+        <p class="form-note">
+          Уже есть аккаунт? <a href="login.html">Войти</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('reg-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = e.target.elements.name.value.trim();
+      const email = e.target.elements.email.value.trim();
+      const pass = e.target.elements.password.value;
+      if (!name || !email || !pass) return;
+      
+      let users = JSON.parse(localStorage.getItem('ilu_users') || '[]');
+      if (users.find(u => u.email === email)) {
+        alert('Пользователь с таким email уже существует');
+        return;
+      }
+      
+      users.push({ name, email, password: pass });
+      localStorage.setItem('ilu_users', JSON.stringify(users));
+      localStorage.setItem('ilu_currentUser', JSON.stringify({ name, email }));
+      
+      window.location.href = 'index.html#/account';
+    });
+  </script>
+</body>
+</html>

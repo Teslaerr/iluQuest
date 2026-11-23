@@ -1,0 +1,3 @@
+window.PLACE_QUEST_CONFIG = {
+  yandexMapsApiKey: 'PASTE_YOUR_YANDEX_MAPS_API_KEY_HERE'
+};
